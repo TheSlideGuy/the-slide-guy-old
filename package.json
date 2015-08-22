@@ -1,0 +1,37 @@
+{
+  "name": "the-slide-guy",
+  "version": "0.0.0-alpha.1",
+  "description": "Presentation app to help you slide right into worship",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSlideGuy/theslideguy.git"
+  },
+  "keywords": [
+    "slides",
+    "presentation",
+    "worship",
+    "Christian",
+    "lyrics",
+    "CCLI"
+  ],
+  "contributors": [
+    "William Don <willdon@nerdondon.com>",
+    "Jason"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheSlideGuy/theslideguy/issues"
+  },
+  "homepage": "https://github.com/TheSlideGuy/theslideguy#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6"
+  }
+}
