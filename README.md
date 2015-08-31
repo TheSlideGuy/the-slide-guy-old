@@ -10,7 +10,7 @@ the app can easily be adapted to display lyrics for a variety of concert gatheri
 * Set creation area to customize slides and...create sets
 
 # Core Team
-* nerdondon
+* Will D. <nerdondon>
 
 ## License
 MIT
