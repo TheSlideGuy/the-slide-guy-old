@@ -11,6 +11,7 @@ the app can easily be adapted to display lyrics for a variety of concert gatheri
 
 # Core Team
 * Will D. <nerdondon>
+* Jason (jasonszhao)
 
 ## License
 MIT
