@@ -15,3 +15,7 @@ the app can easily be adapted to display lyrics for a variety of concert gatheri
 
 ## License
 MIT
+
+## Contributing
+
+* Commit Messages should conform to [Angular's guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit)
