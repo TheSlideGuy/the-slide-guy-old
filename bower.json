@@ -1,0 +1,25 @@
+{
+  "name": "TheSlideGuy",
+  "version": "0.0.0",
+  "homepage": "https://github.com/TheSlideGuy/theslideguy",
+  "authors": [
+    "Will D. <willdon@nerdondon.com>",
+    "Jason"
+  ],
+  "description": "Presentation app to help you slide right into worship",
+  "keywords": [
+    "slides",
+    "presentation",
+    "worship",
+    "Christian",
+    "lyrics"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
