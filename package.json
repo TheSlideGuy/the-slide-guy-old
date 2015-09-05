@@ -36,6 +36,7 @@
   "devDependencies": {
     "angular-mocks": "^1.4.4",
     "gulp": "^3.9.0",
+    "gulp-jscs": "^2.0.0",
     "gulp-less": "^3.0.3",
     "gulp-typescript": "^2.8.1",
     "jasmine-core": "^2.3.4",
