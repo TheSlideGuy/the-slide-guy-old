@@ -10,12 +10,22 @@ the app can easily be adapted to display lyrics for a variety of concert gatheri
 * Set creation area to customize slides and...create sets
 
 # Core Team
-* Will D. <nerdondon>
+* Will D. (nerdondon)
 * Jason (jasonszhao)
+
+# Contributing
+
+### Development Environment
+In order to develop and build this project you must first have Node.JS installed.
+
+You must then ensure that the following packages are installed **globally**:
+* bower
+* karma-cli
+* gulp
+
+### Source Control Guidelines
+* Commit Messages should conform to [Angular's guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit)
+
 
 ## License
 MIT
-
-## Contributing
-
-* Commit Messages should conform to [Angular's guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit)
