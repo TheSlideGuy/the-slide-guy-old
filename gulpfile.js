@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var fs = require('fs');
 
 var jscs = require('gulp-jscs');
-var jscsrc = JSON.parse(fs.readFileSync('./package.json'));
+var jscsrc = JSON.parse(fs.readFileSync('./.jscsrc'));
 
 gulp.task('default', function() {
   // place code for your default task here
