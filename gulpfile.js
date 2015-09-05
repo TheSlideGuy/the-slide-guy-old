@@ -5,7 +5,10 @@ var jscs = require('gulp-jscs');
 var jscsrc = JSON.parse(fs.readFileSync('./.jscsrc'));
 
 gulp.task('default', function() {
-  // place code for your default task here
+    console.log('\n gulp <command> \
+    \n     Command List: \
+    \n         lint \
+    \n')
 });
 
 gulp.task('lint', function(){
