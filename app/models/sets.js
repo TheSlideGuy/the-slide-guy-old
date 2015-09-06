@@ -7,7 +7,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var setSchema = new Schema({
-  title: String,
+  title: {type: String},
+  service_date: {type: Date, required: true},
   songs: [
 
   ]

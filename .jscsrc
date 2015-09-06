@@ -1,0 +1,13 @@
+{
+    "verbose": true,
+
+    "preset": "airbnb",
+    "disallowTrailingComma": true,
+    "requireTrailingComma": false,
+    "disallowMultipleLineBreaks": false,
+
+    "validateIndentation": {
+        "value": 2,
+        "allExcept": ["comments", "emptyLines"]
+    }
+}
