@@ -16,6 +16,9 @@ the app can easily be adapted to display lyrics for a variety of concert gatheri
 # Contributing
 
 ### Development Environment
+
+Run `node app/app.js`, and navigate to [localhost:3000](localhost:3000)
+
 In order to develop and build this project you must first have Node.JS installed.
 
 You must then ensure that the following packages are installed **globally**:
