@@ -2,7 +2,7 @@
   "name": "the-slide-guy",
   "version": "0.0.0-alpha.1",
   "description": "Presentation app to help you slide right into worship",
-  "main": "index.js",
+  "main": "app/app.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TheSlideGuy/theslideguy.git"
@@ -50,6 +50,10 @@
     "karma-jasmine": "^0.3.6",
     "karma-mocha": "^0.2.0",
     "mocha": "^2.3.0",
-    "mockgoose": "^2.0.3"
+    "mockgoose": "^2.0.3",
+    "util": "^0.10.3"
+  },
+  "scripts": {
+    "start": "NODE_PATH=$(pwd) nodemon app/app.js"
   }
 }
