@@ -8,7 +8,20 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // Import the song parts schema
-var songPartSchema = require('./schema_only/song_parts.js');
+//var songPartSchema = require('./schema_only/song_parts.js');
+
+var validPartsEnum = {
+  values: 'Verse Pre-Chorus Chorus Bridge'.split(" "),
+  message: '`{VALUE}` is not a valid song part.'
+};
+
+// Schema definition of song parts
+var songPartSchema = new Schema({
+  song_part: { type: String, required: true, unique: true, enum: validPartsEnum },
+  parts: [{
+    type: String, required: true
+  }]
+});
 
 var songSchema = new Schema({
   title: {type: String, required: true},
@@ -24,7 +37,7 @@ var songSchema = new Schema({
 songSchema.index({artist: 1, title: 1}, {unique: true});
 
 // Function to ensure that the lyrics array is not empty
-var lyricsValidator = function(lyrArray) {
+var lyricsValidator = function(lyrArr) {
   // The lyrics array must be defined and non-empty
   var songPartsDefined = lyrArr && lyrArr.length > 0;
   if (!songPartsDefined) {
@@ -33,7 +46,7 @@ var lyricsValidator = function(lyrArray) {
 
   // Make sure that song parts are not empty
   for (var i = 0; i < lyrArr.length; i++) {
-    if (lyrArr[i].parts && lyrArr[i].parts > 0) {
+    if (lyrArr[i].parts && lyrArr[i].parts.length > 0) {
       return true;
     }
   }
