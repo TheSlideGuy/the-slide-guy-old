@@ -1,13 +1,12 @@
 var mongoose = require('mongoose');
-var mockgoose = require('mockgoose');
+var config = require('../app/config');
 
 before(function rootBeforeHook(done) {
-  mockgoose(mongoose);
-  mongoose.connect('mongodb://localhost:27017/slide-guy');
+  mongoose.connect('mongodb://' + config.mongo.url + '/' + config.mongo.db);
   done();
 });
 
-after(function rootAfterHook() {
-  mockgoose.reset();
+after(function rootAfterHook(done) {
   mongoose.connection.close();
+  done();
 });

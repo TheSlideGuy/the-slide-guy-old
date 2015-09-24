@@ -1,11 +1,21 @@
 var mongoose = require('mongoose');
-var mockgoose = require('mockgoose');
 var expect = require('chai').expect;
 
 var Song = require('../../app/models/songs');
 
 describe('The Song model', function() {
-  describe('Given a valid song model', function() {
+
+  afterEach(function(done) {
+    // Drop database after each validity state test
+    mongoose.connection.db.dropDatabase(function(err) {
+      if(err) {
+        done(err);
+      }
+      done();
+    });
+  });
+
+  describe('Given a valid song document', function() {
     var song;
     before(function() {
       song = new Song({
@@ -19,10 +29,15 @@ describe('The Song model', function() {
           {
             song_part: 'Verse',
             parts: [
-                'A thousand times I\'ve failed\n'
+              'A thousand times I\'ve failed\n'
                 + 'Still your mercy remains\n'
                 + 'Should I stumble again\n'
                 + 'Still I\'m caught in your grace\n'
+                + 'Everlasting, your light will shine when all else fades\n'
+                + 'Never ending, your glory goes beyond all fame\n',
+              'Your will above all else\n'
+                + 'My purpose remains\n'
+                + 'The art of losing myself in bringing you praise\n'
                 + 'Everlasting, your light will shine when all else fades\n'
                 + 'Never ending, your glory goes beyond all fame\n'
             ]
@@ -41,14 +56,6 @@ describe('The Song model', function() {
       });
     });
 
-    it('should have a connection', function(done) {
-      var connection = mongoose.connect('mongodb://localhost:27017/slide-guy').connection;
-      connection.on('connected', function() {
-        expect(connection._mockReadyState).to.equal(1);
-        done();
-      })
-    });
-
     it('should create the song', function(done) {
       song.save(function(err, savedSong) {
         expect(err).to.be.a('null');
@@ -58,13 +65,21 @@ describe('The Song model', function() {
       });
     });
 
+    it('the toLyricsDict method should flatten and key the lyrics array correctly', function() {
+      song.save(function(err, songInDb) {
+        var lyricsDict = songInDb.lyricsToDict();
+        expect(lyricsDict['Verse']).to.have.length.greaterThan(0);
+        expect(lyricsDict['Chorus']).to.have.length.greaterThan(0);
+      });
+    });
+
     after(function(done) {
       song = null;
       done();
     });
   });
   
-  describe('Given an invalid song model', function() {
+  describe('Given an invalid song document', function() {
     it('should be invalidated when there are no song parts added', function(done) {
       var song = new Song({
         title: 'From the Inside Out',
@@ -82,7 +97,7 @@ describe('The Song model', function() {
       });
 
       song.save(function(err) {
-        expect(err.errors.lyrics.type).to.equal('Lyrics must be added to the song before it can be saved.');
+        expect(err.errors.lyrics.message).to.equal('Lyrics must be added to the song before it can be saved.');
         done();
       });
     });
