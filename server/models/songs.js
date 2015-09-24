@@ -3,7 +3,8 @@
  *
  */
 
-var indexBy = require('lodash.indexBy');
+var indexBy = require('lodash.indexby');
+var mapValues = require('lodash.mapvalues');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -24,7 +25,7 @@ var songSchema = new Schema({
 songSchema.index({artist: 1, title: 1}, {unique: true});
 
 // Function to ensure that the lyrics array is not empty
-var lyricsValidator = function(lyrArray) {
+var lyricsValidator = function(lyrArr) {
   // The lyrics array must be defined and non-empty
   var songPartsDefined = lyrArr && lyrArr.length > 0;
   if (!songPartsDefined) {
@@ -33,7 +34,7 @@ var lyricsValidator = function(lyrArray) {
 
   // Make sure that song parts are not empty
   for (var i = 0; i < lyrArr.length; i++) {
-    if (lyrArr[i].parts && lyrArr[i].parts > 0) {
+    if (lyrArr[i].parts && lyrArr[i].parts.length > 0) {
       return true;
     }
   }
@@ -46,7 +47,9 @@ songSchema.path('lyrics').validate(lyricsValidator, 'Lyrics must be added to the
 
 // Turn the regular lyrics array into a dictionary with song parts as keys
 songSchema.methods.lyricsToDict = function() {
-  return indexBy(this.lyrics, 'song_part');
+  var dictBySongPart = indexBy(this.lyrics, 'song_part');
+  var flattened = mapValues(dictBySongPart, 'parts');
+  return flattened;
 };
 
 // Export the model

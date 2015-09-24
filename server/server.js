@@ -1,5 +1,5 @@
-require('node-monkey').start({host: "127.0.0.1", port:"50500"});
-var util = require("util");
+require('node-monkey').start({host: '127.0.0.1', port:'50500'});
+var util = require('util');
 
 var express = require('express');
 var path = require('path');
@@ -65,11 +65,11 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-var server = app.listen(3000, function () {
+var server = app.listen(3000, function() {
   //var host = server.address().address;
   //var port = server.address().port;
 
-  var host = process.env.IP || config.hostname || "127.0.0.1";
+  var host = process.env.IP || config.hostname || '127.0.0.1';
   var port = process.env.PORT || config.port || 3000;
 
   console.log('The Slide Guy app listening at http://%s:%s', host, port);
