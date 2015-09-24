@@ -66,6 +66,9 @@ node_modules
 .idea/tasks.xml
 .idea/dictionaries
 
+# Differs between IDE's from JetBrains
+.idea/misc.xml
+
 # Sensitive or high-churn files:
 # .idea/dataSources.ids
 # .idea/dataSources.xml
@@ -80,7 +83,7 @@ node_modules
 # Mongo Explorer plugin:
 # .idea/mongoSettings.xml
 
-## File-based project format:
+## File-based project formwat:
 *.ipr
 *.iws
 
