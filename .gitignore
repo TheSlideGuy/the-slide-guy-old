@@ -83,7 +83,7 @@ node_modules
 # Mongo Explorer plugin:
 # .idea/mongoSettings.xml
 
-## File-based project formwat:
+## File-based project format:
 *.ipr
 *.iws
 
