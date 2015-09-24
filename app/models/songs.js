@@ -3,25 +3,13 @@
  *
  */
 
-var indexBy = require('lodash.indexBy');
+var indexBy = require('lodash.indexby');
+var mapValues = require('lodash.mapvalues');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // Import the song parts schema
-//var songPartSchema = require('./schema_only/song_parts.js');
-
-var validPartsEnum = {
-  values: 'Verse Pre-Chorus Chorus Bridge'.split(" "),
-  message: '`{VALUE}` is not a valid song part.'
-};
-
-// Schema definition of song parts
-var songPartSchema = new Schema({
-  song_part: { type: String, required: true, unique: true, enum: validPartsEnum },
-  parts: [{
-    type: String, required: true
-  }]
-});
+var songPartSchema = require('./schema_only/song_parts.js');
 
 var songSchema = new Schema({
   title: {type: String, required: true},
@@ -59,7 +47,9 @@ songSchema.path('lyrics').validate(lyricsValidator, 'Lyrics must be added to the
 
 // Turn the regular lyrics array into a dictionary with song parts as keys
 songSchema.methods.lyricsToDict = function() {
-  return indexBy(this.lyrics, 'song_part');
+  var dictBySongPart = indexBy(this.lyrics, 'song_part');
+  var flattened = mapValues(dictBySongPart, 'parts');
+  return flattened;
 };
 
 // Export the model
