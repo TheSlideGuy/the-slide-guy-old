@@ -5,6 +5,7 @@
   "disallowTrailingComma": true,
   "requireTrailingComma": false,
   "disallowMultipleLineBreaks": false,
+  "validateLineBreaks": "LF",
 
   "validateIndentation": {
     "value": 2,
