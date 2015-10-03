@@ -5,16 +5,29 @@
  */
 
 var express = require('express');
-var path = require('path');
+
+var config = require('./config');
+
+if (config.env == 'dev') {
+  var nomo = require('node-monkey');
+}
 
 var morgan = require('morgan');
 var util = require('util');
 
+var bunyan = require('bunyan');
+var log = bunyan.createLogger({
+  name: 'main',
+  streams: [
+    {
+      level: 'info',
+      stream: nomo.stream
+    }
+  ]
+});
+
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var config = require('./config');
-
 
 var app = express();
 
@@ -40,9 +53,9 @@ app.use('/', routes);
 app.use(function(req, res, next) {
   var err = Error('Not Found');
   err.status = 404;
-  console.log(util.inspect({message: err.message, error: err, file: req.originalUrl}));
+  log.info(util.inspect({message: err.message, error: err, file: req.originalUrl}));
   //next(err);
-  res.render('error.jade', {
+  res.status(404).render('error.jade', {
     message: err.message,
     error: err
   });
@@ -55,9 +68,10 @@ var error = require('./lib/error');
 
 if (app.get('env') === 'development') {
 
-  require('node-monkey').start({
+  nomo.start({
     host: '127.0.0.1',
-    port: '50500'
+    port: '50500',
+    suppressOutput: false
   });
 
   app.use(error.showError);
@@ -72,5 +86,5 @@ var server = app.listen(3000, function() {
   var host = process.env.IP || config.hostname || '127.0.0.1';
   var port = process.env.PORT || config.port || 3000;
 
-  console.log('The Slide Guy app listening at http://%s:%s', host, port);
+  log.info('The Slide Guy app listening at http://%s:%s', host, port);
 });

@@ -1,3 +1,5 @@
+require('./errors');
+
 // ====== error handler middleware
 exports.showError = function(err, req, res, next) {
 
