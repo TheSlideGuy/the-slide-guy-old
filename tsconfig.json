@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "sourceMap": true,
+    "removeComments": true,
+    "target": "es5"
+  },
+  "exclude" : [
+    "node_modules",
+    "public/vendor"
+  ]
+}
