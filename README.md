@@ -25,7 +25,6 @@ You must then ensure that the following packages are installed **globally**:
 * bower
 * karma-cli
 * gulp
-* nodemon
 
 Don't forget to `npm install`!
 
