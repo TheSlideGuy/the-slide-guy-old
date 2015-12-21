@@ -5,6 +5,11 @@ var config = {
   mongo: {
     url: process.env.MONGO_URI || 'localhost:27017',
     db: 'slide_guy'
+  },
+  pco: {
+    clientID: '',
+    clientSecret: '',
+    callbackURL: ''
   }
 };
 
