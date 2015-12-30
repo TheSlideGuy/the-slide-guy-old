@@ -1,4 +1,3 @@
-var config = require('../../config');
 var passport = require('passport');
 
 module.exports = function(router) {

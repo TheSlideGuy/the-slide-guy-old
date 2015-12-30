@@ -3,8 +3,12 @@ module.exports = function(express) {
 
   // GET home page.
   router.get('/', function(req, res, next) {
-    console.log('about to send file: ' + process.env.NODE_PATH + '/public/index.html');
     res.sendFile(process.env.NODE_PATH + '/public/index.html');
+  });
+
+  // Login page
+  router.get('/login', function(req, res, next) {
+    res.sendFile(process.env.NODE_PATH + '/public/login.html');
   });
 
   return router;

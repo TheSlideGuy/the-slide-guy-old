@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="TheSlideGuy">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Presenter View | The Slide Guy</title>
+  <link rel="stylesheet" href="vendor/github/angular/bower-material@1.0.0/angular-material.min.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="/style/style.css"/>
+  <meta name="viewport" content="initial-scale=1"/>
+  <!--<link rel="stylesheet" href="components/reveal.js/css/reveal.min.css">-->
 </head>
-<body>
-  
+<body layout="column" layout-align="start center">
+
+  <h1 class="md-headline">TheSlideGuy</h1>
+  <h2 class="md-subhead">Sign in via the methods listed below</h2>
+
+  <md-card>
+    <md-card-avatar>
+      <md-icon class="material-icons">account_circle</md-icon>
+    </md-card-avatar>
+    <md-card-content>
+
+    </md-card-content>
+  </md-card>
+
+  <script src="/vendor/system.js"></script>
+  <script src="config.js"></script>
+  <script>
+    System.import('app/app');
+  </script>
 </body>
 </html>
