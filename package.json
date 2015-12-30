@@ -57,7 +57,7 @@
     "util": "^0.10.3"
   },
   "scripts": {
-    "start": "NODE_PATH=$(pwd) nodemon server/server.js"
+    "start": "NODE_PATH=$(pwd); NODE_ENV=dev; nodemon server/server.js"
   },
   "jspm": {
     "directories": {

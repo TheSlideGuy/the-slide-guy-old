@@ -56,10 +56,10 @@ passport.use('pco', new OAuth2Strategy({
   clientID: config.pco.clientID,
   clientSecret: config.pco.clientSecret,
   callbackURL: 'http://' + host + ':' + port + '/pco-auth/callback'
-}), function(accessToken, refreshToken, profile, done) {
+}, function(accessToken, refreshToken, profile, done) {
   // Not storing user for now
-  return done(null, {});
-});
+  //return done(null, {});
+}));
 
 // Import routes
 var appRoutes = require('./routes/app')(express);
