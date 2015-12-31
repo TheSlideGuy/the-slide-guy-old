@@ -58,7 +58,7 @@ passport.use('pco', new OAuth2Strategy({
   callbackURL: 'http://' + host + ':' + port + '/pco-auth/callback'
 }, function(accessToken, refreshToken, profile, done) {
   // Not storing user for now
-  //return done(null, {});
+  return done(null, {});
 }));
 
 // Import routes
