@@ -1,4 +1,9 @@
 {
-	"preset": "google",
-  "requireTrailingComma": false
+  "preset": "google",
+
+  "requireTrailingComma": false,
+  "maximumLineLength": {
+      "value": 80,
+      "allExcept": ["comments", "regex"]
+   }
 }
